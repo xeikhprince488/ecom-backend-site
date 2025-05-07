@@ -31,7 +31,9 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://ecom-site-beta.vercel.app/",
+      "https://ecom-site-beta.vercel.app",
       "https://ecom-site-j99g.vercel.app",
+      "https://ecom-site-j99g.vercel.app/",
   
       "https://*.loca.lt"  // Add this line to allow all LocalTunnel subdomains
     ],
