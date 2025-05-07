@@ -30,7 +30,6 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://your-client-app.vercel.app",
       "https://ecom-site-beta.vercel.app/",
       "https://ecom-site-j99g.vercel.app",
   
