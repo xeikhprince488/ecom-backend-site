@@ -31,8 +31,9 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://your-client-app.vercel.app",
-      "https://groceryhub.loca.lt",
-      "https://two-pillows-sneeze.loca.lt",
+      "https://ecom-site-beta.vercel.app/",
+      "https://ecom-site-j99g.vercel.app",
+  
       "https://*.loca.lt"  // Add this line to allow all LocalTunnel subdomains
     ],
     methods: ["GET", "POST", "DELETE", "PUT"],

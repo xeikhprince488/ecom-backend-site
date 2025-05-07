@@ -4,6 +4,13 @@ const Order = require("../../models/Order");
 const Product = require("../../models/Product");
 const paypal = require("../../helpers/paypal");
 
+const getBaseURL = () => {
+  const isDevelopment = process.env.NODE_ENV === 'development';
+  return isDevelopment 
+    ? "http://localhost:5173" 
+    : "https://ecom-site-beta.vercel.app";
+};
+
 // Function to create order
 const createOrder = async (req, res) => {
   try {
@@ -32,14 +39,15 @@ const createOrder = async (req, res) => {
     // Check if the payment method is PayPal
     if (paymentMethod === "paypal") {
       // PayPal payment creation
+      const baseURL = getBaseURL();
       const create_payment_json = {
         intent: "sale",
         payer: {
           payment_method: "paypal",
         },
         redirect_urls: {
-          return_url: "http://localhost:5173/shop/paypal-return",
-          cancel_url: "http://localhost:5173/shop/paypal-cancel",
+          return_url: `${baseURL}/shop/paypal-return`,
+          cancel_url: `${baseURL}/shop/paypal-cancel`,
         },
         transactions: [
           {

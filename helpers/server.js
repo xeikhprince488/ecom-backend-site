@@ -8,7 +8,9 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://ecom.papgen.online'
+    'https://ecom.papgen.online',
+    'https://ecom-site-beta.vercel.app',
+    'https://ecom-site-j99g.vercel.app'
   ],
   credentials: true,
 }));
@@ -18,7 +20,11 @@ app.use(express.json());
 
 // Handle Preflight Requests
 app.options('*', (req, res) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+    res.header('Access-Control-Allow-Origin', [
+        'http://localhost:5173',
+        'https://ecom.papgen.online',
+        'https://ecom-site-beta.vercel.app'
+    ].join(', '));
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.header('Access-Control-Allow-Credentials', 'true');
